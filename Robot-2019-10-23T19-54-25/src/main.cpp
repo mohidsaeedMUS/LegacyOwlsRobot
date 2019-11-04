@@ -14,7 +14,8 @@
 // LeftTop              motor         18              
 // RightTop             motor         19              
 // ClawMotor            motor         3               
-// ArmMotor             motor         10               
+// ArmMotor             motor         10
+// ArmMotor2            motor         12               
 // LeftBottom           motor         17              
 // RightBottom          motor         20              
 // ---- END VEXCODE CONFIGURED DEVICES ----
@@ -116,6 +117,7 @@ void usercontrol(void) {
 
     if(Controller1.ButtonR1.pressing()) {
       ArmMotor.spin(directionType::fwd, ArmSpeedPCT, velocityUnits::pct);
+      ArmMotor2.spin(directionType::rev, ArmSpeedPCT, velocityUnits::pct);
     }
     else if(Controller1.ButtonR2.pressing()) {
       ArmMotor.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);

@@ -13,7 +13,7 @@ motor LeftTop = motor(PORT18, ratio18_1, false);
 motor RightTop = motor(PORT19, ratio18_1, true);
 //motor ClawMotor = motor(PORT3, ratio18_1, false);
 motor ArmMotor = motor(PORT10, ratio18_1, false);
-//motor ArmMotor2 = motor(PORT9, ratio18_1, false);
+motor ArmMotor2 = motor(PORT12, ratio18_1, false);
 motor LeftBottom = motor(PORT17, ratio18_1, false);
 motor RightBottom = motor(PORT20, ratio18_1, true);
 
