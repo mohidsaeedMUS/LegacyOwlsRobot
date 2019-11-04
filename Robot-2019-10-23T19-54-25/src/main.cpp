@@ -14,7 +14,7 @@
 // LeftTop              motor         18              
 // RightTop             motor         19              
 // ClawMotor            motor         3               
-// ArmMotor             motor         8               
+// ArmMotor             motor         10               
 // LeftBottom           motor         17              
 // RightBottom          motor         20              
 // ---- END VEXCODE CONFIGURED DEVICES ----
@@ -69,10 +69,12 @@ void autonomous(void) {
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
-void usercontrol(void) {
-  // Initializing Robot Configuration. DO NOT REMOVE!
-    
 
+void usercontrol(void) {
+  // Initializing Robot Configuration. DO NOT REMOVE
+
+  int ArmSpeedPCT = 5;
+  
   // Deadband stops the motors when Axis values are close to zero.
   int deadband = 5;
 
@@ -111,6 +113,16 @@ void usercontrol(void) {
     LeftBottom.spin(forward);
     RightTop.spin(forward);
     RightBottom.spin(forward);
+
+    if(Controller1.ButtonR1.pressing()) {
+      ArmMotor.spin(directionType::fwd, ArmSpeedPCT, velocityUnits::pct);
+    }
+    else if(Controller1.ButtonR2.pressing()) {
+      ArmMotor.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);
+    }
+    else{
+      ArmMotor.stop(brakeType::brake);
+    }
 
     wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.
