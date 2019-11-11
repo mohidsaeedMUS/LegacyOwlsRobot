@@ -123,7 +123,7 @@ void usercontrol(void) {
       ArmMotor.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);
     }
     else{
-      ArmMotor.stop(brakeType::brake);
+      ArmMotor.stop(brakeType::hold);
     }
 
     wait(20, msec); // Sleep the task for a short amount of time to
