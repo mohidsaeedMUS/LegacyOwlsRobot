@@ -117,13 +117,15 @@ void usercontrol(void) {
 
     if(Controller1.ButtonR1.pressing()) {
       ArmMotor.spin(directionType::fwd, ArmSpeedPCT, velocityUnits::pct);
-      ArmMotor2.spin(directionType::rev, ArmSpeedPCT, velocityUnits::pct);
+      ArmMotor2.spin(directionType::fwd, ArmSpeedPCT, velocityUnits::pct);
     }
     else if(Controller1.ButtonR2.pressing()) {
       ArmMotor.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);
+      ArmMotor2.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);
     }
     else{
       ArmMotor.stop(brakeType::hold);
+      ArmMotor2.stop(brakeType::hold);
     }
 
     wait(20, msec); // Sleep the task for a short amount of time to
