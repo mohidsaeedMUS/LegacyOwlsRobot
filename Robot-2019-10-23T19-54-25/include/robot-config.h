@@ -9,6 +9,8 @@ extern motor RightTop;
 //extern motor ClawMotor;
 extern motor ArmMotor;
 extern motor ArmMotor2;
+extern motor ArmMotor3;
+extern motor ArmMotor4;
 extern motor LeftBottom;
 extern motor RightBottom;
 

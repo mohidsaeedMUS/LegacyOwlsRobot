@@ -118,21 +118,27 @@ void usercontrol(void) {
     
     // If Button R1 on the controller is pressed,
     if(Controller1.ButtonR1.pressing()) {
-      //Spin both arm motors forward, at the speed of int ArmSpeedPCT.
+      //Spin all arm motors forward, at the speed of int ArmSpeedPCT.
       ArmMotor.spin(directionType::fwd, ArmSpeedPCT, velocityUnits::pct);
       ArmMotor2.spin(directionType::fwd, ArmSpeedPCT, velocityUnits::pct);
+      ArmMotor3.spin(directionType::fwd, ArmSpeedPCT, velocityUnits::pct);
+      ArmMotor4.spin(directionType::fwd, ArmSpeedPCT, velocityUnits::pct);
     }
     // If Button R2 on the controller is pressed,
     else if(Controller1.ButtonR2.pressing()) {
-      // Spin both arm motors reverse, at the speed of int ArmSpeedPCT.
+      // Spin all arm motors reverse, at the speed of int ArmSpeedPCT.
       ArmMotor.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);
       ArmMotor2.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);
+      ArmMotor3.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);
+      ArmMotor4.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);
     }
     // If neither button is pressed,
     else{
-      // Stop both arm motors.
+      // Stop all arm motors.
       ArmMotor.stop(brakeType::hold);
       ArmMotor2.stop(brakeType::hold);
+      ArmMotor3.stop(brakeType::hold);
+      ArmMotor4.stop(brakeType::hold);;
     }
 
     wait(20, msec); // Sleep the task for a short amount of time to
