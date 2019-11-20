@@ -138,7 +138,26 @@ void usercontrol(void) {
       ArmMotor.stop(brakeType::hold);
       ArmMotor2.stop(brakeType::hold);
       ArmMotor3.stop(brakeType::hold);
-      ArmMotor4.stop(brakeType::hold);;
+      ArmMotor4.stop(brakeType::hold);
+    }
+
+    // If Button X on the controller is pressed,
+    if(Controller1.ButtonX.pressing()) {
+      //Spin all elbow motors forward, at the speed of int ArmSpeedPCT.
+      ElbowMotor.spin(directionType::fwd, ArmSpeedPCT, velocityUnits::pct);
+      ElbowMotor2.spin(directionType::fwd, ArmSpeedPCT, velocityUnits::pct);
+    }
+    // If Button B on the controller is pressed,
+    else if(Controller1.ButtonB.pressing()) {
+      // Spin all elbow motors reverse, at the speed of int ArmSpeedPCT.
+      ElbowMotor.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);
+      ElbowMotor2.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);
+    }
+    // If neither button is pressed,
+    else{
+     // Stop all elbow motors
+     ElbowMotor.stop(brakeType::hold);
+     ElbowMotor2.stop(brakeType::hold);
     }
 
     wait(20, msec); // Sleep the task for a short amount of time to
