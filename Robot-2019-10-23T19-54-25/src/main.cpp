@@ -74,18 +74,19 @@ void autonomous(void) {
 void usercontrol(void) {
   // Initializing Robot Configuration. DO NOT REMOVE
 
-  int ArmSpeedPCT = 5;
+  // int used for speed of the Arm motors.
+  int ArmSpeedPCT = 30;
   
   // Deadband stops the motors when Axis values are close to zero.
   int deadband = 5;
 
   while (1) {
-    // Get the velocity percentage of the left motor. (Axis3)
+    // Get the velocity percentage of the left motors. (Axis3)
     int leftMotorSpeed = Controller1.Axis3.position();
-    // Get the velocity percentage of the right motor. (Axis2)
+    // Get the velocity percentage of the right motors. (Axis2)
     int rightMotorSpeed = Controller1.Axis2.position();
 
-    // Set the speed of the left motor. If the value is less than the deadband,
+    // Set the speed of the left motors. If the value is less than the deadband,
     // set it to zero.
     if (abs(leftMotorSpeed) < deadband) {
       // Set the speed to zero.
@@ -97,7 +98,7 @@ void usercontrol(void) {
       LeftBottom.setVelocity(leftMotorSpeed, percent);
     }
 
-    // Set the speed of the right motor. If the value is less than the deadband,
+    // Set the speed of the right motors. If the value is less than the deadband,
     // set it to zero.
     if (abs(rightMotorSpeed) < deadband) {
       // Set the speed to zero
@@ -109,21 +110,27 @@ void usercontrol(void) {
       RightBottom.setVelocity(rightMotorSpeed, percent);
     }
 
-    // Spin both motors in the forward direction.
+    // Spin all motors in the forward direction.
     LeftTop.spin(forward);
     LeftBottom.spin(forward);
     RightTop.spin(forward);
     RightBottom.spin(forward);
-
+    
+    // If Button R1 on the controller is pressed,
     if(Controller1.ButtonR1.pressing()) {
+      //Spin both arm motors forward, at the speed of int ArmSpeedPCT.
       ArmMotor.spin(directionType::fwd, ArmSpeedPCT, velocityUnits::pct);
       ArmMotor2.spin(directionType::fwd, ArmSpeedPCT, velocityUnits::pct);
     }
+    // If Button R2 on the controller is pressed,
     else if(Controller1.ButtonR2.pressing()) {
+      // Spin both arm motors reverse, at the speed of int ArmSpeedPCT.
       ArmMotor.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);
       ArmMotor2.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);
     }
+    // If neither button is pressed,
     else{
+      // Stop both arm motors.
       ArmMotor.stop(brakeType::hold);
       ArmMotor2.stop(brakeType::hold);
     }
