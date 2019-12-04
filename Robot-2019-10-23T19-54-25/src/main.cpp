@@ -14,8 +14,7 @@
 // LeftTop              motor         18              
 // RightTop             motor         19              
 // ClawMotor            motor         3               
-// ArmMotor             motor         10
-// ArmMotor2            motor         12               
+// ArmMotor             motor         10               
 // LeftBottom           motor         17              
 // RightBottom          motor         20              
 // ---- END VEXCODE CONFIGURED DEVICES ----
@@ -76,7 +75,7 @@ void usercontrol(void) {
 
   // int used for speed of the Arm motors.
   int ArmSpeedPCT = 30;
-  
+  int ClawSpeedPCT = 100;  
   // Deadband stops the motors when Axis values are close to zero.
   int deadband = 5;
 
@@ -120,45 +119,28 @@ void usercontrol(void) {
     if(Controller1.ButtonR1.pressing()) {
       //Spin all arm motors forward, at the speed of int ArmSpeedPCT.
       ArmMotor.spin(directionType::fwd, ArmSpeedPCT, velocityUnits::pct);
-      ArmMotor2.spin(directionType::fwd, ArmSpeedPCT, velocityUnits::pct);
-      ArmMotor3.spin(directionType::fwd, ArmSpeedPCT, velocityUnits::pct);
-      ArmMotor4.spin(directionType::fwd, ArmSpeedPCT, velocityUnits::pct);
     }
     // If Button R2 on the controller is pressed,
     else if(Controller1.ButtonR2.pressing()) {
       // Spin all arm motors reverse, at the speed of int ArmSpeedPCT.
       ArmMotor.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);
-      ArmMotor2.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);
-      ArmMotor3.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);
-      ArmMotor4.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);
     }
     // If neither button is pressed,
     else{
       // Stop all arm motors.
       ArmMotor.stop(brakeType::hold);
-      ArmMotor2.stop(brakeType::hold);
-      ArmMotor3.stop(brakeType::hold);
-      ArmMotor4.stop(brakeType::hold);
+    } 
+    
+    if(Controller1.ButtonL1.pressing()) {
+      ClawMotor.spin(directionType::fwd, ClawSpeedPCT, velocityUnits::pct);
+    }
+    else if(Controller1.ButtonL2.pressing()) {
+      ClawMotor.spin(directionType::rev, ClawSpeedPCT, velocityUnits::pct);
+    }
+    else{
+      ClawMotor.stop(brakeType::hold);
     }
 
-    // If Button X on the controller is pressed,
-    if(Controller1.ButtonX.pressing()) {
-      //Spin all elbow motors forward, at the speed of int ArmSpeedPCT.
-      ElbowMotor.spin(directionType::fwd, ArmSpeedPCT, velocityUnits::pct);
-      ElbowMotor2.spin(directionType::fwd, ArmSpeedPCT, velocityUnits::pct);
-    }
-    // If Button B on the controller is pressed,
-    else if(Controller1.ButtonB.pressing()) {
-      // Spin all elbow motors reverse, at the speed of int ArmSpeedPCT.
-      ElbowMotor.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);
-      ElbowMotor2.spin(directionType::rev,ArmSpeedPCT,velocityUnits::pct);
-    }
-    // If neither button is pressed,
-    else{
-     // Stop all elbow motors
-     ElbowMotor.stop(brakeType::hold);
-     ElbowMotor2.stop(brakeType::hold);
-    }
 
     wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.
@@ -169,7 +151,7 @@ void usercontrol(void) {
 // Main will set up the competition functions and callbacks.
 //
 int main() {
-  vexcodeInit();
+  vexcodeInit(); 
   // Set up callbacks for autonomous and driver control periods.
   Competition.autonomous(autonomous);
   Competition.drivercontrol(usercontrol);
