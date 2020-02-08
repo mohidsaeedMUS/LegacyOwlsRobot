@@ -1,6 +1,5 @@
 # LegacyOwlsRobot
-Our 9th Grade VEX Robot.
-
+Our 9th Grade VEX Robot
 ## What is the point of the repository?
 The point of this repository is to provide the code of our robot to the teammates, so that they can access the code if I happen to be away from the competition.
 
@@ -20,3 +19,7 @@ Click the big, green button that says 'Clone or Download' and click 'Download as
  ![Image3](https://user-images.githubusercontent.com/45521362/68627285-077c7a00-04a3-11ea-8df1-bceeb5d817ed.png "Optional title")
   - Navigate to LegacyOwlsRobot-master > LegacyOwlsRobot-master > Robot-2019-10-23T19-54-25 > and open 'HamzaIsChrist.v5code'
  ![Image4](https://user-images.githubusercontent.com/45521362/68627286-077c7a00-04a3-11ea-829f-250562c99bf5.png "Optional title")
+
+
+### Why is your name "**Legacy**Owls" when you're using Vex V5?
+Shut up, it sounds cool.
