@@ -13,8 +13,8 @@
 // Controller1          controller                    
 // LeftTop              motor         18              
 // RightTop             motor         19              
-// ClawMotor            motor         3               
-// ArmMotor             motor         10               
+// ClawMotor            motor         14               
+// ArmMotor             motor         19               
 // LeftBottom           motor         17              
 // RightBottom          motor         20              
 // ---- END VEXCODE CONFIGURED DEVICES ----
@@ -57,6 +57,67 @@ void autonomous(void) {
   // ..........................................................................
   // Insert autonomous user code here.
   // ..........................................................................
+  LeftTop.spin(directionType::fwd, 30, velocityUnits::pct);
+  LeftBottom.spin(directionType::fwd, 30, velocityUnits::pct);
+  RightTop.spin(directionType::fwd, 30, velocityUnits::pct);
+  RightBottom.spin(directionType::fwd, 30, velocityUnits::pct);
+  //vex::task::sleep(20);
+  wait(2, sec);
+  LeftTop.stop(brakeType::brake);
+  LeftBottom.stop(brakeType::brake);
+  RightTop.stop(brakeType::brake);
+  RightBottom.stop(brakeType::brake);
+  wait(100, msec);
+  LeftTop.spin(directionType::rev, 30, velocityUnits::pct);
+  LeftBottom.spin(directionType::rev, 30, velocityUnits::pct);
+  RightTop.spin(directionType::fwd, 30, velocityUnits::pct);
+  RightBottom.spin(directionType::fwd, 30, velocityUnits::pct);
+  wait(1, sec);
+  LeftTop.stop(brakeType::brake);
+  LeftBottom.stop(brakeType::brake);
+  RightTop.stop(brakeType::brake);
+  RightBottom.stop(brakeType::brake);
+  wait(100, msec);
+  LeftTop.spin(directionType::fwd, 30, velocityUnits::pct);
+  LeftBottom.spin(directionType::fwd, 30, velocityUnits::pct);
+  RightTop.spin(directionType::fwd, 30, velocityUnits::pct);
+  RightBottom.spin(directionType::fwd, 30, velocityUnits::pct);
+  wait(3, sec);
+  LeftTop.stop(brakeType::brake);
+  LeftBottom.stop(brakeType::brake);
+  RightTop.stop(brakeType::brake);
+  RightBottom.stop(brakeType::brake);
+  wait(100, msec);
+  LeftTop.spin(directionType::fwd, 30, velocityUnits::pct);
+  LeftBottom.spin(directionType::fwd, 30, velocityUnits::pct);
+  RightTop.spin(directionType::fwd, 30, velocityUnits::pct);
+  RightBottom.spin(directionType::fwd, 30, velocityUnits::pct);
+  wait(100,msec);
+  ArmMotor.spin(directionType::rev, 30, velocityUnits::pct);
+  wait(1500, msec);
+  LeftTop.stop(brakeType::brake);
+  LeftBottom.stop(brakeType::brake);
+  RightTop.stop(brakeType::brake);
+  RightBottom.stop(brakeType::brake);
+  wait(100, msec);
+  ClawMotor.spin(directionType::fwd, 30, velocityUnits::pct);
+  wait(1, sec);
+  LeftTop.spin(directionType::rev, 30, velocityUnits::pct);
+  LeftBottom.spin(directionType::rev, 30, velocityUnits::pct);
+  RightTop.spin(directionType::rev, 30, velocityUnits::pct);
+  RightBottom.spin(directionType::rev, 30, velocityUnits::pct);
+  wait(500, msec);
+  LeftTop.stop(brakeType::brake);
+  LeftBottom.stop(brakeType::brake);
+  RightTop.stop(brakeType::brake);
+  RightBottom.stop(brakeType::brake);
+  wait(100, msec);
+  LeftTop.spin(directionType::rev, 30, velocityUnits::pct);
+  LeftBottom.spin(directionType::rev, 30, velocityUnits::pct);
+  RightTop.spin(directionType::fwd, 30, velocityUnits::pct);
+  RightBottom.spin(directionType::fwd, 30, velocityUnits::pct);
+  wait(2, sec);
+  
 }
 
 /*---------------------------------------------------------------------------*/
@@ -130,14 +191,19 @@ void usercontrol(void) {
       // Stop all arm motors.
       ArmMotor.stop(brakeType::hold);
     } 
-    
+    // If Button L1 is being pressed
     if(Controller1.ButtonL1.pressing()) {
+      // Spin ClawMotor forward at the speed of integer ClawSpeedPCT
       ClawMotor.spin(directionType::fwd, ClawSpeedPCT, velocityUnits::pct);
     }
+    // If Button L2 is being pressed
     else if(Controller1.ButtonL2.pressing()) {
+      // Spin ClawMotor backwards at the speed of integer ClawSpeedPCT
       ClawMotor.spin(directionType::rev, ClawSpeedPCT, velocityUnits::pct);
     }
+    // If neither buttons are being pressed
     else{
+      // Stop the ClawMotor and hold its position
       ClawMotor.stop(brakeType::hold);
     }
 
