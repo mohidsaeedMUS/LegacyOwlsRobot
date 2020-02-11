@@ -50,13 +50,22 @@ void pre_auton(void) {
 /*  This task is used to control your robot during the autonomous phase of   */
 /*  a VEX Competition.                                                       */
 /*                                                                           */
-/*  You must modify the code to add your own robot specific commands here.   */
+/*  You +must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
 void autonomous(void) {
   // ..........................................................................
   // Insert autonomous user code here.
   // ..........................................................................
+  ClawMotor.spin(directionType::fwd, 30, velocityUnits::pct);
+  wait(500, msec);
+  ArmMotor.spin(directionType::fwd, 30, velocityUnits::pct);
+  wait(500, msec);
+  LeftTop.stop(brakeType::brake);
+  LeftBottom.stop(brakeType::brake);
+  RightTop.stop(brakeType::brake);
+  RightBottom.stop(brakeType::brake);
+  wait(100, msec);
   LeftTop.spin(directionType::fwd, 30, velocityUnits::pct);
   LeftBottom.spin(directionType::fwd, 30, velocityUnits::pct);
   RightTop.spin(directionType::fwd, 30, velocityUnits::pct);
@@ -68,31 +77,31 @@ void autonomous(void) {
   RightTop.stop(brakeType::brake);
   RightBottom.stop(brakeType::brake);
   wait(100, msec);
-  LeftTop.spin(directionType::rev, 30, velocityUnits::pct);
-  LeftBottom.spin(directionType::rev, 30, velocityUnits::pct);
-  RightTop.spin(directionType::fwd, 30, velocityUnits::pct);
-  RightBottom.spin(directionType::fwd, 30, velocityUnits::pct);
-  wait(1, sec);
+  LeftTop.spin(directionType::fwd, 30, velocityUnits::pct);
+  LeftBottom.spin(directionType::fwd, 30, velocityUnits::pct);
+  RightTop.spin(directionType::rev, 30, velocityUnits::pct);
+  RightBottom.spin(directionType::rev, 30, velocityUnits::pct);
+  wait(1500, msec);
   LeftTop.stop(brakeType::brake);
   LeftBottom.stop(brakeType::brake);
   RightTop.stop(brakeType::brake);
   RightBottom.stop(brakeType::brake);
   wait(100, msec);
-  LeftTop.spin(directionType::fwd, 30, velocityUnits::pct);
-  LeftBottom.spin(directionType::fwd, 30, velocityUnits::pct);
-  RightTop.spin(directionType::fwd, 30, velocityUnits::pct);
-  RightBottom.spin(directionType::fwd, 30, velocityUnits::pct);
+  LeftTop.spin(directionType::fwd, 60, velocityUnits::pct);
+  LeftBottom.spin(directionType::fwd, 60, velocityUnits::pct);
+  RightTop.spin(directionType::fwd, 60, velocityUnits::pct);
+  RightBottom.spin(directionType::fwd, 60, velocityUnits::pct);
   wait(3, sec);
   LeftTop.stop(brakeType::brake);
   LeftBottom.stop(brakeType::brake);
   RightTop.stop(brakeType::brake);
   RightBottom.stop(brakeType::brake);
   wait(100, msec);
-  LeftTop.spin(directionType::fwd, 30, velocityUnits::pct);
-  LeftBottom.spin(directionType::fwd, 30, velocityUnits::pct);
-  RightTop.spin(directionType::fwd, 30, velocityUnits::pct);
-  RightBottom.spin(directionType::fwd, 30, velocityUnits::pct);
-  wait(100,msec);
+  LeftTop.spin(directionType::rev, 45, velocityUnits::pct);
+  LeftBottom.spin(directionType::rev, 45, velocityUnits::pct);
+  RightTop.spin(directionType::rev, 45, velocityUnits::pct);
+  RightBottom.spin(directionType::rev, 45, velocityUnits::pct);
+  wait(1, sec);
   ArmMotor.spin(directionType::rev, 30, velocityUnits::pct);
   wait(1500, msec);
   LeftTop.stop(brakeType::brake);
@@ -117,7 +126,60 @@ void autonomous(void) {
   RightTop.spin(directionType::fwd, 30, velocityUnits::pct);
   RightBottom.spin(directionType::fwd, 30, velocityUnits::pct);
   wait(2, sec);
-  
+  LeftTop.stop(brakeType::brake);
+  LeftBottom.stop(brakeType::brake);
+  RightTop.stop(brakeType::brake);
+  RightBottom.stop(brakeType::brake);
+  wait(100, msec);
+  LeftTop.spin(directionType::fwd, 30, velocityUnits::pct);
+  LeftBottom.spin(directionType::fwd, 30, velocityUnits::pct);
+  RightTop.spin(directionType::fwd, 30, velocityUnits::pct);
+  RightBottom.spin(directionType::fwd, 30, velocityUnits::pct);
+  wait(1, sec);
+  LeftTop.stop(brakeType::brake);
+  LeftBottom.stop(brakeType::brake);
+  RightTop.stop(brakeType::brake);
+  RightBottom.stop(brakeType::brake);
+  wait(100, msec);
+  LeftTop.spin(directionType::rev, 30, velocityUnits::pct);
+  LeftBottom.spin(directionType::rev, 30, velocityUnits::pct);
+  RightTop.spin(directionType::fwd, 30, velocityUnits::pct);
+  RightBottom.spin(directionType::fwd, 30, velocityUnits::pct);
+  wait(1, sec);
+  LeftTop.stop(brakeType::brake);
+  LeftBottom.stop(brakeType::brake);
+  RightTop.stop(brakeType::brake);
+  RightBottom.stop(brakeType::brake);
+  wait(100, msec);
+  LeftTop.spin(directionType::fwd, 30, velocityUnits::pct);
+  LeftBottom.spin(directionType::fwd, 30, velocityUnits::pct);
+  RightTop.spin(directionType::fwd, 30, velocityUnits::pct);
+  RightBottom.spin(directionType::fwd, 30, velocityUnits::pct);
+  wait(500, msec);
+  LeftTop.stop(brakeType::brake);
+  LeftBottom.stop(brakeType::brake);
+  RightTop.stop(brakeType::brake);
+  RightBottom.stop(brakeType::brake);
+  wait(100, msec);
+  LeftTop.spin(directionType::rev, 45, velocityUnits::pct);
+  LeftBottom.spin(directionType::rev, 45, velocityUnits::pct);
+  RightTop.spin(directionType::rev, 45, velocityUnits::pct);
+  RightBottom.spin(directionType::rev, 45, velocityUnits::pct);
+  wait(2, sec);
+  LeftTop.stop(brakeType::brake);
+  LeftBottom.stop(brakeType::brake);
+  RightTop.stop(brakeType::brake);
+  RightBottom.stop(brakeType::brake);
+  wait(100, msec);
+  ArmMotor.spin(directionType::rev, 45, velocityUnits::pct);
+  wait(500, msec);
+  ClawMotor.spin(directionType::rev, 30, velocityUnits::pct);
+  wait(1, sec);
+/*   LeftTop.spin(directionType::rev, 30, velocityUnits::pct);
+  LeftBottom.spin(directionType::rev, 30, velocityUnits::pct);
+  RightTop.spin(directionType::rev, 30, velocityUnits::pct);
+  RightBottom.spin(directionType::rev, 30, velocityUnits::pct);
+  wait(1, sec);  */
 }
 
 /*---------------------------------------------------------------------------*/
@@ -137,6 +199,7 @@ void usercontrol(void) {
   // int used for speed of the Arm motors.
   int ArmSpeedPCT = 30;
   int ClawSpeedPCT = 100;  
+  int IntakeSpeedPCT = 100;
   // Deadband stops the motors when Axis values are close to zero.
   int deadband = 5;
 
@@ -194,17 +257,23 @@ void usercontrol(void) {
     // If Button L1 is being pressed
     if(Controller1.ButtonL1.pressing()) {
       // Spin ClawMotor forward at the speed of integer ClawSpeedPCT
-      ClawMotor.spin(directionType::fwd, ClawSpeedPCT, velocityUnits::pct);
+      //ClawMotor.spin(directionType::fwd, ClawSpeedPCT, velocityUnits::pct);
+      Intake1.spin(directionType::fwd, IntakeSpeedPCT, velocityUnits::pct);
+      Intake2.spin(directionType::fwd, IntakeSpeedPCT, velocityUnits::pct);
     }
     // If Button L2 is being pressed
     else if(Controller1.ButtonL2.pressing()) {
       // Spin ClawMotor backwards at the speed of integer ClawSpeedPCT
-      ClawMotor.spin(directionType::rev, ClawSpeedPCT, velocityUnits::pct);
+      //ClawMotor.spin(directionType::rev, ClawSpeedPCT, velocityUnits::pct);
+      Intake1.spin(directionType::rev, IntakeSpeedPCT, velocityUnits::pct);
+      Intake2.spin(directionType::rev, IntakeSpeedPCT, velocityUnits::pct);
     }
     // If neither buttons are being pressed
     else{
       // Stop the ClawMotor and hold its position
-      ClawMotor.stop(brakeType::hold);
+      //ClawMotor.stop(brakeType::hold);
+      Intake1.stop(brakeType::brake);
+      Intake2.stop(brakeType::brake);
     }
 
 
